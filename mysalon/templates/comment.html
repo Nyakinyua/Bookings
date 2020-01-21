@@ -1,0 +1,72 @@
+{%extends 'layout.html'%}
+{%load bootstrap4%}
+{%load static%}
+{{block.supper}}
+{%block content%}
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid" src="{{post.pic.cdn_url}}" width="auto" height="450px" alt="{{post.title}}">
+        </div>
+
+        <div class="col-md-4">
+            <div class="card cardX">
+                <div class="card-header">
+                    <h3>{{post.name}}</h3>
+                </div>
+                <div class="card-body">
+
+                    <h6>{{post.price}}</h6>
+
+                </div>
+                <div class="card-footer">
+                    <p>Posted on: {{post.date|timesince}}</p>
+                    <p>Comments: {{comments|length}}</p>
+                  
+                    <hr>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <div class="card cardX">
+                <div class="card-header">Add Comment</div>
+                <form class="form-group" action="/comment/{{post.id}}" name='{{post.id}}' method="post">
+                    {%csrf_token%}
+                    {%bootstrap_form form%}
+                    <input type="hidden" name="id" value="{{ post.id }}">
+                    <div class="btn">
+                        <button id='post' class="btn btn-info" type="submit" name="button">Post</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+        <h3><u>Comments</u></h3>
+        <div class="row">
+            <div class="col-md-12">
+                {% if comments %}
+                {% for comment in comments %}
+                <div class="card bg-transparent">
+                    <h5>{{comment.user}}</h5>
+                    <p><small class="text-dark"><i>{{comment.comment}}</i></small></p>
+                </div>
+                <br>
+                {% endfor %}
+                {% else %}
+                <p class="alert alert-danger">No Comment posted</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+
+
+    {%endblock content%}
