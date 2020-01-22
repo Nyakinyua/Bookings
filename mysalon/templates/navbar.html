@@ -36,8 +36,8 @@
             <!-- end sidebar -->
 
             <!-- Brand -->
-            <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
-                <strong class="blue-text">Salon</strong>
+            <a class="navbar-brand waves-effect" href="{%url 'mysalon:home'%}" target="_blank">
+                <strong class="blue-text">Salon and SPA</strong>
             </a>
 
             <!-- Collapse -->
@@ -53,8 +53,9 @@
 
                 <ul class="navbar-nav nav-flex-icons">
                     {%if request.user.is_authenticated%}
+
                     <li class="nav-item">
-                        <a class="nav-link waves-effect">
+                        <a href="{% url 'mysalon:order-summary' %}"class="nav-link waves-effect">
                             <span class="badge red z-depth-0 mr-0">{{request.user|cart_item_count}}</span>
                             <i class="fas fa-shopping-cart"></i>
                             <span class="clearfix d-none d-sm-inline-block">Cart</span>
@@ -74,7 +75,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{% url 'accounts_signup'%}" class="nav-link waves-effect" target="_blank">
+                        <a href="{% url 'account_signup'%}" class="nav-link waves-effect" target="_blank">
                             <i class="fab fa-twitter"></i>signUp
                         </a>
                     </li>
@@ -85,6 +86,58 @@
 
         </div>
     </nav>
+    <style>
+    .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(17, 17, 17);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #a5ccf8;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+/* Media Queries: Tablet Landscape */
+@media screen and (max-width: 1060px) {
+  #primary { width:67%; }
+  #secondary { width:30%; margin-left:3%;}  
+}
+
+/* Media Queries: Tabled Portrait */
+@media screen and (max-width: 768px) {
+  #primary { width:100%; }
+  #secondary { width:100%; margin:0; border:none; }
+}
+    </style>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>

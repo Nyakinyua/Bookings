@@ -21,3 +21,11 @@ body,
 /* Footer color for sake of consistency with Navbar */
 .page-footer {
   background-color: #929FBA; }
+  
+.card{
+  font-family: 'Courgette', cursive;
+}
+.carousel-item{
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) , var(--image-url) center center;
+  background-size: cover;
+}

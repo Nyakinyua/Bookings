@@ -45,8 +45,12 @@ INSTALLED_APPS = [
     'salon',
     'mysalon.apps.MysalonConfig',
     'bootstrap4',
+    'paypal.standard.ipn',
+    'crispy_forms',
     
 ]
+PAYPAL_RECEIVER_EMAIL = 'pyra_m.k@yahoo.com'
+PAYPAL_TEST = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -149,3 +153,6 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login'
