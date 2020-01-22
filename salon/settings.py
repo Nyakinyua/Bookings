@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'pyuploadcare.dj',
     'salon',
     'mysalon.apps.MysalonConfig',
-    'bootstrap4'
+    'bootstrap4',
+    
 ]
 
 MIDDLEWARE = [

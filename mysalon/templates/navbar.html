@@ -1,0 +1,92 @@
+{% load cart_template_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="/styles.css" rel="stylesheet">
+</head>
+
+<body class="grey lighten-3">
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar"
+        style="background-color: #ddeeff;">
+        <div class="container">
+            <!-- side bar -->
+            <div id="mySidenav" class="sidenav" style>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+            </div>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <!-- end sidebar -->
+
+            <!-- Brand -->
+            <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
+                <strong class="blue-text">Salon</strong>
+            </a>
+
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <!-- right -->
+
+                <ul class="navbar-nav nav-flex-icons">
+                    {%if request.user.is_authenticated%}
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect">
+                            <span class="badge red z-depth-0 mr-0">{{request.user|cart_item_count}}</span>
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="clearfix d-none d-sm-inline-block">Cart</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'account_logout'%}" class="nav-link waves-effect" target="_blank">
+                            <i class=""></i>Logout
+                        </a>
+                    </li>
+                    {%else%}
+                    <li class="nav-item">
+                        <a href="{% url 'account_login'%}" class="nav-link waves-effect" target="_blank">
+                            <i class=""></i>Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'accounts_signup'%}" class="nav-link waves-effect" target="_blank">
+                            <i class="fab fa-twitter"></i>signUp
+                        </a>
+                    </li>
+                    {%endif %}
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- Navbar -->

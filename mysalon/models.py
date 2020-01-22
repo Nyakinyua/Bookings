@@ -5,7 +5,19 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
+
 # Create your models here.
+class Profile(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,default=None,null=True)
+    pic = ImageField(blank=True,manual_crop='')
+    bio = models.CharField(max_length=1000,blank=True,null=True)
+    
+    def __str__(self):
+        return self.user.username
+    
+    def save_profile(self):
+        return self.save()
+
 CATEGORY_CHOICES = (
     ('SC', 'Skin Care'),
     ('HC', 'Hair Care'),
@@ -32,21 +44,31 @@ class Item(models.Model):
     label = models.CharField(choices=LABEL_CHOICES, max_length=1, default='P')
     slug = models.SlugField(default=None,null=True)
     description = models.TextField(default=None,null=True)
-    quantity = models.IntegerField(default=1)
     def __str__(self):
         return self.title
     
     def get_absolute_url(self):
-        return reverse('detail',kwargs={
-            'slug':self.slug
+        return reverse('mysalon:detail',kwargs={
+             'slug':self.slug
         })
 
+    def get_add_to_cart_url(self):
+        return reverse('mysalon:add-to-cart',kwargs={
+            'slug':self.slug
+        })
+    def get_remove_from_cart_url(self):
+        return reverse('mysalon:remove_from_cart',kwargs={
+        'slug':self.slug
+    })
+    
 
 class OrderItem(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,default=None,null=True)
+    ordered = models.BooleanField(default=False)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-
+    quantity = models.IntegerField(default=1)
     def __str__(self):
-        return self.title
+        return f"{self.quantity} of {self.item.title}"
 
 
 class Order(models.Model):
