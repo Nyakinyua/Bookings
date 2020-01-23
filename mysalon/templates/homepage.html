@@ -3,14 +3,14 @@
 {% load static %}
 {%block content%}
 
-<div class="container">
+<div class="container-fluid" style="padding-top:4em">
 
   <div class="row">
     {% for item in object_list %}
-      <div class=col-md-4>
-          <div class="card" style="margin-bottom: 5em;">
+      <div class=col-md-3>
+          <div class="card" style="margin-top: 20px;">
               <div class="card-title">
-                  <h3>{{item.title}}</h3>
+                  <h6><u><strong>{{item.title}}</strong></u></h6>
               </div>
               <a href="{{item.get_absolute_url}}">
                   <img class="img-fluid" src="{{item.image.cdn_url}}" alt=""></a>
@@ -23,13 +23,10 @@
                 </a>
               </div>
               <div class="card-footer">
-                  <a href="{{post.project_link}}">Link to live site</a>
-                  <p>posted {{post.pub_date|timesince}} ago</p>
+                  <a href="{{item.discount_price}}">Discount:${{item.discount_price}}</a>
+                  <p>${{item.price}}</p>
               </div>
-              <div class="section">
-                  <a href="/review/{{post.id}}"><button class="btn btn-info" type="button" name="button">Write a
-                          Review</button></a>
-              </div>
+      
 
 
           </div>
@@ -43,57 +40,13 @@
   <div class='col-md-2'></div>
 </div>
 <!--Section: Products v.3-->
-<section class="container" style="padding-top:4em">
-  <div class="row">
-    {% for item in object_list %}
-    <!-- <div class="col-md-4"> -->
-
-    <!--Card-->
-    <div class="card col-md-6">
-      <div class="card-title">
-        <h5>
-          <strong>
-            <a href="" class="dark-grey-text">{{item.title}}
-              <span class="badge badge-pill {{item.get_label_display}}-color">NEW</span>
-            </a>
-          </strong>
-        </h5>
-      </div>
-      
-      <div class="card-body">
-        <a href="{{item.get_absolute_url}}"><img  width="350px" src="{{item.image.cdn_url}}" class="img-fluid" alt=""></a>
-        <a href="" class="grey-text">
-          <h5>{{item.get_category_display}}</h5>
-        </a>
-
-      </div>
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <div class="card-footer">
-            <h4 class="font-weight-bold red-text">
-              <strong>$ {% if item.discount_price%}
-                {{item.discount_price}}
-                {%else%}
-                {{item.price}}</strong>
-              {%endif%}
-            </h4>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-    {%endfor%}
-  </div>
-</section>
-
 
 
 <!--Pagination-->
-{%if is_paginated %}
+
 <nav class="d-flex justify-content-center wow fadeIn">
   <ul class="pagination pg-blue">
-    {%if page_obj.has_previous %}
+   
     <!--Arrow left-->
     <li class="page-item">
       <a class="page-link" href="?page={{page_obj.next_previous_number}}" aria-label="Previous">
@@ -101,24 +54,24 @@
         <span class="sr-only">Previous</span>
       </a>
     </li>
-    {%endif%}
+   
     <li class="page-item active">
       <a class="page-link" href="?page={{page_obj.number}} ">{{page_obj.number}}
         <span class="sr-only"></span>
       </a>
     </li>
 
-    {%if page_obj.has_next%}
+  
     <li class="page-item">
       <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
         <span class="sr-only">Next</span>
       </a>
     </li>
-    {%endif%}
+
   </ul>
 </nav>
-{%endif%}
+
 <!--Pagination-->
 
 

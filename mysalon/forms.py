@@ -9,9 +9,3 @@ class AddCommentForm(forms.ModelForm):
         model = Comments
         exclude = ['user','post']
         
-        
-class CreateAppointmentForm(forms.ModelForm):
-    class Meta:
-        
-        model = Appointment
-        fields = ("schedule","stylistName",)

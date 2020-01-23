@@ -64,9 +64,16 @@ class Item(models.Model):
 
 class Appointment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,default=None,null=True)
-    schedule = models.CharField(default=None,null=True,max_length=600)
-    stylistName = models.CharField(max_length=50)
+    service = models.CharField(max_length=50)
+    contact = models.CharField(max_length=15)
+    email = models.EmailField()
     date = models.DateTimeField()
+    
+    def __str__(self):
+        return self.service
+    
+    def save_appointment(self):
+        return self.save()
 
     
 

@@ -15,28 +15,28 @@ import random
 
 
 # Create your views here.
-
+@login_required()
 def item_list(request):
     context = {
         'item': Item.objects.all()
     }
     return render(request, 'homepage.html', context)
 
-
+@login_required()
 def item_list(request):
     context = {
         'item': Item.objects.all()
     }
     return render(request, 'homepage.html', context)
 
-
+@login_required()
 def order_summary(request):
     try:
         order = Order.objects.get(user=request.user,ordered=False)
         return render(request,'order_summary.html',{'object':order})
     except ObjectDoesNotExist:
         messages.warning(self.request,"You do not have an active order")
-        
+@login_required()       
 def total_order(request):
     if request.method == 'POST':
         amount = request.POST.get('price')
@@ -64,13 +64,13 @@ class ItemDetailView(DetailView):
     model = Item
     template_name = 'product.html'
 
-
+@login_required()
 def posts(request):
     all_posts = Salonposts.objects.all()
     comments = Comments.objects.all()
-    return render(request, 'posts.html', {'post': all_posts, 'comments': comments})
+    return render(request, 'index.html', {'post': all_posts, 'comments': comments})
 
-
+@login_required()
 def add_comments(request, id):
     '''
     view function that renders one post and has a comment section
@@ -91,7 +91,7 @@ def add_comments(request, id):
         comment = Comments.objects.filter(post=post.id)
         return render(request, 'comment.html', {'form': form, 'post': post, 'comments': comment})
 
-
+@login_required()
 def add_to_cart(request, slug):
     item = get_object_or_404(Item, slug=slug)
     order_item, created = OrderItem.objects.get_or_create(
@@ -120,7 +120,7 @@ def add_to_cart(request, slug):
         messages.info(request, "This item was added to your cart.")
         return redirect("mysalon:detail", slug=slug)
 
-
+@login_required()
 def remove_from_cart(request, slug):
     item = get_object_or_404(Item, slug=slug)
     order_qs = Order.objects.filter(
@@ -146,7 +146,7 @@ def remove_from_cart(request, slug):
         messages.info(request, "You do not have an active order")
         return redirect('mysalon:detail', slug=slug)
 
-
+@login_required()
 def remove_single_item_from_cart(request, slug):
     item = get_object_or_404(Item, slug=slug)
     order_qs = Order.objects.filter(
@@ -209,13 +209,32 @@ def user_activate(request, user_id):
 
 def create_appointment(request):
     user = request.user
-    if request.POST:
-        form = CreateAppointmentForm(request.POST,request.FILES)
-        if form.is_valid():
-            form.save(commit=False)
-            messages.info(request,'You have booked an appointment')
-            return redirect('home')
+    if request.method == 'POST':
+        booked = Appointment.objects.all()
+        for book in booked:
+            if Appointment.user == request.user:
+                messages.info(request,"You have a pending appointment")
+                return redirect('mysalon:home')
+        email = request.POST.get('email')
+        number = request.POST.get('phone')
+        date = request.POST.get('appointment')
+        service = request.POST.get('service')
+        
+        
+        if email and number and date and service:
+            your_appointment = Appointment(user = request.user,email=email,contact=number,date=date,service=service)
+            your_appointment.save()
+            messages.info(request,"Your appointment has been scheduled on")
+            return redirect('mysalon:home')
+        else:
+            messages.info(request,"Input all fields")
+            return redirect('mysalon:appointment')
     else:
-        form = CreateAppointmentForm()
-    return render(request,'appointments.html',{'form':form})
+        messages.info(request,'Invalid Inputs, try again')
+        return render(request,"appointments.html")
+         
+           
+                
+            
+        
         

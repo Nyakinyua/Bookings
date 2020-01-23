@@ -17,19 +17,25 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
 </head>
-
-<body class="grey lighten-3">
+<style>
+#good{
+          margin-left: 900px;
+}
+#for{
+        margin-right: 40px;
+}
+</style>
+<body class="grey lighten-3" id="brown">
 
     <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar"
-        style="background-color: #ddeeff;">
+    <nav class="navbar fixed-top navbar-expand-lg">
         <!-- side bar -->
       <div id="mySidenav" class="sidenav" style>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href=''>New Business</a>
         <a href="">Post</a>
         <a href="">Edit Profile</a>
-        <a href="">All Businesses</a>
+        <a href="{%url 'mysalon:home'%}">Products</a>
         <a href="{% url 'mysalon:appointment'%}">Book Appointment</a>
         <a href="{% url 'mysalon:system_users'%}">DashBoard</a>
       </div>
@@ -39,7 +45,7 @@
             
 
             <!-- Brand -->
-            <a class="navbar-brand waves-effect" href="{%url 'mysalon:home'%}" target="_blank">
+            <a class="navbar-brand waves-effect" href="{%url 'mysalon:posts'%}" target="_blank">
                 <strong class="blue-text">Salon and SPA</strong>
             </a>
 
@@ -54,10 +60,10 @@
 
                 <!-- right -->
 
-                <ul class="navbar-nav nav-flex-icons">
+                <ul class="navbar-nav nav-flex-icons"id="good" >
                     {%if request.user.is_authenticated%}
 
-                    <li class="nav-item">
+                    <li id="for" class="nav-item">
                         <a href="{% url 'mysalon:order-summary' %}"class="nav-link waves-effect">
                             <span class="badge red z-depth-0 mr-0">{{request.user|cart_item_count}}</span>
                             <i class="fas fa-shopping-cart"></i>
@@ -67,19 +73,19 @@
 
                     <li class="nav-item">
                         <a href="{% url 'account_logout'%}" class="nav-link waves-effect" target="_blank">
-                            <i class=""></i>Logout
+                            <i class="fas fa-sign-out-alt"></i>Logout
                         </a>
                     </li>
                     {%else%}
                     <li class="nav-item">
                         <a href="{% url 'account_login'%}" class="nav-link waves-effect" target="_blank">
-                            <i class=""></i>Login
+                          <i class="fas fa-sign-in-alt"></i>Login
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="{% url 'account_signup'%}" class="nav-link waves-effect" target="_blank">
-                            <i class="fab fa-twitter"></i>signUp
+                          <i class="fas fa-user-plus"></i>signUp
                         </a>
                     </li>
                     {%endif %}
@@ -89,7 +95,13 @@
 
         </div>
     </nav>
+  </body>
     <style>
+  
+  .navbar{
+	background:transparent;
+	z-index: 9999;
+}
     .sidenav {
     height: 100%;
     width: 0;
@@ -97,7 +109,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(17, 17, 17);
+    background-color: rgb(68, 68, 68);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -158,5 +170,5 @@
         }
     
       </script>
-</body>
+
 </html>
