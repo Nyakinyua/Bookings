@@ -11,7 +11,6 @@ from . import views
 
 urlpatterns = [
     path('',HomeView.as_view(),name='home'),
-    # path('order_summary/',OrderSummaryView.as_view(),name='order-summary'),
     path('product/<slug>/',ItemDetailView.as_view(),name="detail"),
     path('post/',views.posts,name="posts"),
     path('comment/<int:id>',views.add_comments,name='comment'),
@@ -19,7 +18,12 @@ urlpatterns = [
     path('remove-from-cart/<slug>',views.remove_from_cart,name='remove_from_cart'),
     path('order_summary/',views.order_summary,name='order-summary'),
     path('remove_item/<slug>',views.remove_single_item_from_cart,name='remove_one'),
-    
+    path('create_appointment/',views.create_appointment,name="appointment"),
+    #Dashboard
+    path('activate/user/<int:user_id>', views.user_activate, name='activate_user'),
+    path('deactivate/user/<int:user_id>', views.user_deactivate, name='deactivate_user'),
+    path('dashboard/', views.user_dashboard, name='user_dashboard'),
+    path('users/', views.registered_users, name='system_users'),
     
     #paypal
     path('go/',include,('paypal.standard.ipn.urls')),

@@ -60,6 +60,14 @@ class Item(models.Model):
         return reverse('mysalon:remove_from_cart',kwargs={
         'slug':self.slug
     })
+
+
+class Appointment(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,default=None,null=True)
+    schedule = models.CharField(default=None,null=True,max_length=600)
+    stylistName = models.CharField(max_length=50)
+    date = models.DateTimeField()
+
     
 
 class OrderItem(models.Model):

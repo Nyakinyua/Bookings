@@ -10,8 +10,8 @@ from django.shortcuts import render, get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 import random
-
 
 
 # Create your views here.
@@ -52,21 +52,6 @@ def total_order(request):
         }
         form = PayPalPaymentsForm(initial=paypal_dict)
         return render(request,'payment.html',{"form":form})
-    
-
-
-
-# class OrderSummaryView(LoginRequiredMixin, View):
-#     def get(self, *args, **kwargs):
-#         try:
-#             order = Order.objects.get(user=self.request.user, ordered=False)
-#             context = {
-#                 'object': order
-#             }
-#             return render(self.request, 'order_summary.html', context)
-#         except ObjectDoesNotExist:
-#             messages.warning(self.request, "You do not have an active order")
-#             return redirect("/")
 
 
 class HomeView(ListView):
@@ -191,9 +176,46 @@ def remove_single_item_from_cart(request, slug):
         messages.info(request, "You do not have an active order")
         return redirect('mysalon:detail', slug=slug)
 
+@login_required()
+def user_dashboard(request):
+    """
+    function for displaying dashboard
+    """
+    return render(request, 'dashboard.html')
 
-# def make_payment():
-#     item = request.session.get('order_item')
+@login_required()
+def registered_users(request):
+    users = User.objects.all()
+    context = {
+        'users': users
+    }
+    return render(request, 'users.html', context)
 
-# def paymentView(request):
-#     items = request.session.get('')
+@login_required()
+def user_deactivate(request, user_id):
+    user = User.objects.get(pk=user_id)
+    user.is_active = False
+    user.save()
+    messages.success(request, "User account has been successfully deactivated!")
+    return redirect('system_users')
+
+@login_required()
+def user_activate(request, user_id):
+    user = User.objects.get(pk=user_id)
+    user.is_active = True
+    user.save()
+    messages.success(request, "User account has been successfully activated!")
+    return redirect('system_users')
+
+def create_appointment(request):
+    user = request.user
+    if request.POST:
+        form = CreateAppointmentForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save(commit=False)
+            messages.info(request,'You have booked an appointment')
+            return redirect('home')
+    else:
+        form = CreateAppointmentForm()
+    return render(request,'appointments.html',{'form':form})
+        

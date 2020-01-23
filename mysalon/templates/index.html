@@ -1,118 +1,199 @@
-<!--
-LANDING PAGE TEMPLATE - BUILT WITH BOOTSTRAP 3
-CREATED BY https://clemensotto.com
-- - - - - - - - - - - -
-Download this Template:
-http://l.clemensotto.com/dl/landing-page-template
-- - - - - - - - - - - -  
--->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>AWESOME LANDING PAGE TEMPLATE - Bootstrap 3</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap 3 & Font-Awesome CSS  -->
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" media="screen">
-  <!-- CUSTOM CSS -->
-  <link href="custom.css" rel="stylesheet" media="screen">
-  <!-- HTML5 shiv and Respond.js | IE8 SUPPORT -->
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js"></script>
-      <![endif]-->
-      <style>.list-group-item {border: 0px;}</style>
-    </head>
-    <body>
-      <div class="container">
-        <div class="intro well custom">
-          <h1 class="h1-customized text-center inset">
-            LANDING PAGE
-          </h1>
-          <h2 class="text-center h2-customized">
-            <span class="label label-warning">Boostrap 3 Template</span>
-          </h2>
-          <br><br>
-          <small>
-            <div class="text-center">
-              <span class="glyphicon glyphicon-star custo"></span>
-              <span class="glyphicon glyphicon-star custo"></span>
-              <span class="glyphicon glyphicon-star custo"></span>
-              <span class="glyphicon glyphicon-star custo"></span>
-              <span class="glyphicon glyphicon-star custo"></span>
-            </div>
-          </small>
-          <br>
-          <a class="download" href="#download">
-            <h2 class="text-center h2-customized">
-              Download Now! 
-            </h2>
-          </a>
-        </div> 
-        <div class="well">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="panel panel-default custom-bg"></div>
-              <div class="alert alert-warning text-center alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <br><a href="http://l.clemensotto.com/go/JggihAiVYB" target="_blank">Download more blurred backgrounds here!</a>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3>
-                    <b>Landing Page Template / Theme</b>
-                  </h3>
-                </div>
-                <div id="download" class="panel-body">
-                  <ul class="list-group">
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item">Most suitable for <b>download products!</b></li>
-                    <li class="list-group-item">Responsive - Mobile & Desktop</li>
-                    <li class="list-group-item">Fullscreen background.</li>
-                    <li class="list-group-item"><b>Free</b>. Built with Bootstrap 3!</li>
-                  </ul>
-                  <a target="_blank" class="btn btn-primary btn-lg" href="http://l.clemensotto.com/dl/landing-page-template">
-                    Download <span class="glyphicon glyphicon-download"></span>
-                  </a>
-                  <button class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#more">more</button>
+    <title>AWESOME LANDING PAGE TEMPLATE - Bootstrap 3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <!-- CUSTOM CSS -->
+    <link href="{% staticfiles 'css/styles.css' %}" rel="stylesheet" media="screen">
+    <style>
+        .list-group-item {
+            border: 0px;
+        }
+    </style>
+</head>
 
-                </div>
-              </div>
-            </div>
-          </div>  
+<body>
+    <!--Carousel Wrapper-->
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-2" data-slide-to="1"></li>
+      <li data-target="#carousel-example-2" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <div class="view">
+          <img class="d-block w-100" src="https://images.pexels.com/photos/705255/pexels-photo-705255.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="First slide">
+          <div class="mask rgba-black-light"></div>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive"><a href="{% url 'mysalon:appointment'%}" class="btn btn-secondary">Book Appointment</a>
+              </h3>
+         
         </div>
       </div>
-      <!-- Modal -->
-      <div class="modal fade" id="more" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Landing Page Template / Theme - Bootstrap 3</h4>
-            </div>
-            <div class="modal-body">
-             <p>
-               Download: 
-               <br>
-               <a target="_blank" href="http://l.clemensotto.com/dl/landing-page-template">Landing Page Template</a>
-               <br>
-               <a target="_blank" href="http://l.clemensotto.com/go/JggihAiVYB">Backgrounds (blurred)</a>
-             </p>
-             <br><br>
-             <p class="text-left">Created by <a href="https:/clemensotto.com">Clemens Otto</a>.
-              <br><small>
-              <a href="http://mail.clemensotto.com/">Contact me</a> if you need a customized landing page for your product!
-            </small></p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <!-- Jquery & Bootstrap JS -->
-    <script src="//code.jquery.com/jquery.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  </body>
-  </html>
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view">
+          <img class="d-block w-100" src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Second slide">
+          <div class="mask rgba-black-strong"></div>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Strong mask</h3>
+          <p>Secondary text</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view">
+          <img class="d-block w-100" src="https://images.pexels.com/photos/3188/love-romantic-bath-candlelight.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="Third slide">
+          <div class="mask rgba-black-slight"></div>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Slight mask</h3>
+          <p>Third text</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <section class="weoffer" style="padding-top: 4em;">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">For all your Hair needs</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    
+                  </div>
+                  <a href="#"><img src="https://www.shedul.com/images/Software-Hair-Salons-955d22eb.jpg" alt="salon"></a>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Coiffure and spa</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                <a href="#"><img src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="salon" class='img-fluid'></a>
+                  
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Coiffure and spa</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                    <a href="#"><img src="https://images.pexels.com/photos/161737/pedicure-massage-therapist-spa-161737.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="salon" class='img-fluid'></a>
+                  
+                </div>
+              </div>
+        </div>
+    </section>
+   
+
+    <section class='section-gutter-top-large section-gutter-bottom-large'style="padding-top:5em">
+        <div class='wrapper'>
+            
+            <header  class='section-header text-center'>
+                <h2 class='section-header__title'> Features</h2>
+                <p class='section-header__subtitle'>All the great tools you need to run your Salon, Spa or Wellness
+                    business!</p>
+            </header>
+            <div class="row">
+                <div class="col-md-5">
+            <ul class='features-list'>
+                <li class='features-list__item'>
+                    <div class='features-list__image'>
+                        <img src="https://www.shedul.com/images/1-appointments.svg"
+                            alt="Best Appointment scheduling Software App" />
+                    </div>
+                    <div class='features-list__description'>
+                        <h5 class='features-list__header'>
+                            Schedule Appointments
+                        </h5>
+                        <p class='features-list__content'>
+                            Shedul is a clean, simple tool with powerful calendar scheduling features that can handle
+                            all your salon appointment bookings. Features include online booking, pos with payments and
+                            mobile apps.
+                        </p>
+                    </div>
+                </li>
+                <li class='features-list__item'>
+                    <div class='features-list__image'>
+                        <img src="https://www.shedul.com/images/4-dashboard.svg"
+                            alt="Salon Scheduling appointment dashboard" />
+                    </div>
+                    <div class='features-list__description'>
+                        <h5 class='features-list__header'>
+                            Activity Dashboard
+                        </h5>
+                        <p class='features-list__content'>
+                            Keep track of daily appointment scheduling activities and never miss a beat. The free
+                            dashboard displays up to date appointment bookings, online bookings, appointment
+                            cancelations and client notifications.
+                        </p>
+                    </div>
+                </li>
+             
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+         
+                <li class='features-list__item clearfix'>
+                    <div class='img-fluid ml-5'>
+                        <img src="https://www.shedul.com/images/5-bookings.svg" alt="Salons and Spa">
+                    </div>
+                    <div class='features-list__description'>
+                        <h5 class='features-list__header'>
+                            Online Bookings
+                        </h5><br>
+                        <p class='features-list__content'>
+                            Supercharge your appointment bookings by allowing customers to book appointments online
+                            through your own website, Facebook or online booking apps. Allow clients to book, cancel or
+                            reschedule their own appointment bookings through the app.
+                        </p>
+                    </div>
+                </li>
+                <li class='features-list__item'>
+                    <div class='features-list__image'>
+                        <img src="https://www.shedul.com/images/6-sales.svg" alt="Point of Sales software for Salons and Spas" />
+                    </div>
+                    <div class='features-list__description'>
+                        <h5 class='features-list__header'>
+                            Sales & Products
+                        </h5>
+                        <p class='features-list__content'>
+                            Shedul has point-of-sale built-in, takes care of your salon and Spa pos sales transactions,
+                            invoicing, receipts, taxes and retail product management. Shedul POS is advanced and fully
+                            integrated with salon scheduling app.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-1"></div>
+            <div class='clearfix'></div>
+        </div>
+        </div>
+    </section>
+  
+   
+</body>
+
+</html>

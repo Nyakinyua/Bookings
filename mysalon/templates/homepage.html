@@ -3,54 +3,99 @@
 {% load static %}
 {%block content%}
 
+<div class="container">
 
-<!--Section: Products v.3-->
-<section class="container-fluid" style="padding-top:4em">
   <div class="row">
     {% for item in object_list %}
-    <div class="col-md-4">
+      <div class=col-md-4>
+          <div class="card" style="margin-bottom: 5em;">
+              <div class="card-title">
+                  <h3>{{item.title}}</h3>
+              </div>
+              <a href="{{item.get_absolute_url}}">
+                  <img class="img-fluid" src="{{item.image.cdn_url}}" alt=""></a>
 
-      <!--Card-->
-      <div class="card">
-        <div class="card-body text-center">
-          <!--Category & Title-->
-          <a href="{{item.get_absolute_url}}"><img src="{{item.image.cdn_url}}" class="card-img-top" alt=""></a>
-          <a href="" class="grey-text">
-            <h5>{{item.get_category_display}}</h5>
-          </a>
-          <h5>
-            <strong>
-              <a href="" class="dark-grey-text">{{item.title}}
-                <span class="badge badge-pill {{item.get_label_display}}-color">NEW</span>
-              </a>
-            </strong>
-          </h5>
 
-          <h4 class="font-weight-bold red-text">
-            <strong>$ {% if item.discount_price%}
-              {{item.discount_price}}
-              {%else%}
-              {{item.price}}</strong>
-            {%endif%}
-          </h4>
 
-        </div>
-        <!--Card content-->
+              <div class="card-body">
+                <a href="" class="grey-text">
+                  <h5>{{item.get_category_display}}</h5>
+                </a>
+              </div>
+              <div class="card-footer">
+                  <a href="{{post.project_link}}">Link to live site</a>
+                  <p>posted {{post.pub_date|timesince}} ago</p>
+              </div>
+              <div class="section">
+                  <a href="/review/{{post.id}}"><button class="btn btn-info" type="button" name="button">Write a
+                          Review</button></a>
+              </div>
+
+
+          </div>
+      </div>
+      {%endfor%}
+      <br><br>
+
+  </div>
+
+
+  <div class='col-md-2'></div>
+</div>
+<!--Section: Products v.3-->
+<section class="container" style="padding-top:4em">
+  <div class="row">
+    {% for item in object_list %}
+    <!-- <div class="col-md-4"> -->
+
+    <!--Card-->
+    <div class="card col-md-6">
+      <div class="card-title">
+        <h5>
+          <strong>
+            <a href="" class="dark-grey-text">{{item.title}}
+              <span class="badge badge-pill {{item.get_label_display}}-color">NEW</span>
+            </a>
+          </strong>
+        </h5>
+      </div>
+      
+      <div class="card-body">
+        <a href="{{item.get_absolute_url}}"><img  width="350px" src="{{item.image.cdn_url}}" class="img-fluid" alt=""></a>
+        <a href="" class="grey-text">
+          <h5>{{item.get_category_display}}</h5>
+        </a>
 
       </div>
-      <!--Card-->
-
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="card-footer">
+            <h4 class="font-weight-bold red-text">
+              <strong>$ {% if item.discount_price%}
+                {{item.discount_price}}
+                {%else%}
+                {{item.price}}</strong>
+              {%endif%}
+            </h4>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
     </div>
     {%endfor%}
   </div>
 </section>
+
+
+
 <!--Pagination-->
 {%if is_paginated %}
 <nav class="d-flex justify-content-center wow fadeIn">
   <ul class="pagination pg-blue">
     {%if page_obj.has_previous %}
     <!--Arrow left-->
-    <li class="page-item disabled">
+    <li class="page-item">
       <a class="page-link" href="?page={{page_obj.next_previous_number}}" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
         <span class="sr-only">Previous</span>
