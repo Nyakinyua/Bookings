@@ -41,21 +41,21 @@
     <div class="logo">
       <a class="navbar-brand waves-effect" href="{%url 'mysalon:posts'%}" target="_blank">
         <strong class="blue-text"style="font-weight: 900;font-size: 30px;font-family: 'Pacifico', cursive;">Salon and SPA</strong> <div class="logo">
-          <img src="https://clipartstation.com/wp-content/uploads/2017/11/beauty-clipart-8.jpg" class="rounded-circle" width="80" alt="logo">
+         <a href="{%url 'mysalon:posts'%}"><img src="https://clipartstation.com/wp-content/uploads/2017/11/beauty-clipart-8.jpg" class="rounded-circle" width="80" alt="logo" style="margin-left:2em"></a>
         </div>
     </a>
     </div>
       <div id="mainListDiv" class="main_list">
-        <ul class="navbar-nav nav-flex-icons" >
+        <ul class="navbar-nav nav-flex-icons" style="display: inline;" >
           {%if request.user.is_authenticated%}
 
-          <li class="nav-item">
+          <li class="nav-item list-inline-item">
             <a href="" class="nav-link waves-effect" target="_blank">
               <i class="fas fa-user"></i>Profile
             </a>
           </li>
 
-          <li id="for" class="nav-item">
+          <li id="for" class="nav-item list-inline-item">
               <a href="{% url 'mysalon:order-summary' %}"class="nav-link waves-effect">
                   <span class="badge red z-depth-0 mr-0">{{request.user|cart_item_count}}</span>
                   <i class="fas fa-shopping-cart"></i>
@@ -63,19 +63,19 @@
               </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item list-inline-item">
               <a href="{% url 'account_logout'%}" class="nav-link waves-effect" target="_blank">
                   <i class="fas fa-sign-out-alt"></i>Logout
               </a>
           </li>
           {%else%}
-          <li class="nav-item">
+          <li class="nav-item list-inline-item">
               <a href="{% url 'account_login'%}" class="nav-link waves-effect" target="_blank">
                 <i class="fas fa-sign-in-alt"></i>Login
               </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item list-inline-item">
               <a href="{% url 'account_signup'%}" class="nav-link waves-effect" target="_blank">
                 <i class="fas fa-user-plus"></i>signUp
               </a>

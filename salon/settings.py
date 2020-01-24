@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'paypal.standard.ipn',
     'crispy_forms',
+   
     
 ]
 PAYPAL_RECEIVER_EMAIL = 'pyra_m.k@yahoo.com'

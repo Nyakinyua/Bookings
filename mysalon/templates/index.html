@@ -2,6 +2,8 @@
 {% block content%}
 <style>
   @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto+Mono&display=swap');
+
   .btn {
 
     border: none;
@@ -23,7 +25,8 @@
     background-position: center top;
     background-size: cover;
   }
-  .wrapper  .weoffer {
+
+  .wrapper .weoffer {
     width: 100%;
     height: 100vh;
     font-family: 'Roboto Mono', monospace;
@@ -44,6 +47,31 @@
     border-width: 2px;
     border-color: transparent;
   }
+
+  section {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: larger;
+  }
+
+  img#vert-move {
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+img#vert-move {
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+} 
 </style>
 <section class="home"></section>
 <div class="col text-center">
@@ -52,7 +80,21 @@
 </div>
 
 <hr>
-<section class="weoffer" style="padding-top: 8em;">
+<section class="container" style="padding-top:2em">
+  <div class="row">
+  <div class="col-md-4 ">
+    <img src="http://www.ashleyskenya.com/wp-content/uploads/2017/06/Spa.png" alt="spa" class="float-left" id="vert-move" >
+  </div>
+  <div class="col-md-4 ">
+    <img src="http://www.ashleyskenya.com/wp-content/uploads/2017/06/Hair-Care-Beauty-copy.png" alt="spa" class="mx-auto d-block" id="vert-move">
+  </div>
+  <div class="col-md-4">
+    <img src="http://www.ashleyskenya.com/wp-content/uploads/2017/06/Executive.png" alt="spa" class="float-right" id="vert-move">
+  </div>
+</div>
+</section>
+<hr>
+<section class="weoffer" style="padding-top: 6em;">
   <div class="col text-center">
     <h1 text-align=center style="font-family: 'Pacifico', cursive;"><u>Services Offered</u></h1>
   </div>
@@ -94,26 +136,32 @@
   </div>
 
 
-  
+
 </section>
 
 <hr>
-<section class='section-gutter-top-large section-gutter-bottom-large'>
+
+
+
+<section class='section-gutter-top-large section-gutter-bottom-large'style="margin-top:4em">
   <div class='wrapper'>
 
     <header class='section-header text-center'>
       <h1 text-align=center style="font-family: 'Pacifico', cursive;"><u>Discover Features</u></h1>
     </header>
-    <div class="row">
+
+
+    <div class="row" style="padding-bottom:2em">
+      <div class="col-md-1"></div>
       <div class="col-md-5">
-        <ul class='features-list'>
+        <ul class='features-list' style="list-style-type: none;">
           <li class='features-list__item'>
             <div class='features-list__image'>
               <img src="https://www.shedul.com/images/1-appointments.svg"
                 alt="Best Appointment scheduling Software App" />
-            </div>
+            </div><br>
             <div class='features-list__description'>
-              <h5 class='features-list__header'>
+              <h5 class='features-list__header h2'>
                 Schedule Appointments
               </h5>
               <p class='features-list__content'>
@@ -122,13 +170,13 @@
                 mobile apps.
               </p>
             </div>
-          </li>
+          </li><br>
           <li class='features-list__item'>
             <div class='features-list__image'>
               <img src="https://www.shedul.com/images/4-dashboard.svg" alt="Salon Scheduling appointment dashboard" />
-            </div>
+            </div><br>
             <div class='features-list__description'>
-              <h5 class='features-list__header'>
+              <h5 class='features-list__header h2'>
                 Activity Dashboard
               </h5>
               <p class='features-list__content'>
@@ -138,41 +186,42 @@
               </p>
             </div>
           </li>
-
+        </ul>
       </div>
-      <div class="col-md-1"></div>
+
       <div class="col-md-5">
 
-        <li class='features-list__item clearfix'>
-          <div class='img-fluid ml-5'>
-            <img src="https://www.shedul.com/images/5-bookings.svg" alt="Salons and Spa">
-          </div>
-          <div class='features-list__description'>
-            <h5 class='features-list__header'>
-              Online Bookings
-            </h5><br>
-            <p class='features-list__content'>
-              Supercharge your appointment bookings by allowing customers to book appointments online
-              through your own website, Facebook or online booking apps. Allow clients to book, cancel or
-              reschedule their own appointment bookings through the app.
-            </p>
-          </div>
-        </li>
-        <li class='features-list__item'>
-          <div class='features-list__image'>
-            <img src="https://www.shedul.com/images/6-sales.svg" alt="Point of Sales software for Salons and Spas" />
-          </div>
-          <div class='features-list__description'>
-            <h5 class='features-list__header'>
-              Sales & Products
-            </h5>
-            <p class='features-list__content'>
-              Shedul has point-of-sale built-in, takes care of your salon and Spa pos sales transactions,
-              invoicing, receipts, taxes and retail product management. Shedul POS is advanced and fully
-              integrated with salon scheduling app.
-            </p>
-          </div>
-        </li>
+        <ul style="list-style-type: none;">
+          <li class='features-list__item clearfix'>
+            <div class='img-fluid ml-5'>
+              <img src="https://www.shedul.com/images/5-bookings.svg" alt="Salons and Spa">
+            </div>
+            <div class='features-list__description'>
+              <h5 class='features-list__header h2'>
+                Online Bookings
+              </h5><br>
+              <p class='features-list__content'>
+                Supercharge your appointment bookings by allowing customers to book appointments online
+                through your own website, Facebook or online booking apps. Allow clients to book, cancel or
+                reschedule their own appointment bookings through the app.
+              </p>
+            </div>
+          </li><br>
+          <li class='features-list__item'>
+            <div class='features-list__image'>
+              <img src="https://www.shedul.com/images/6-sales.svg" alt="Point of Sales software for Salons and Spas" />
+            </div><br>
+            <div class='features-list__description'>
+              <h5 class='features-list__header h2'>
+                Sales & Products
+              </h5>
+              <p class='features-list__content'>
+                Shedul has point-of-sale built-in, takes care of your salon and Spa pos sales transactions,
+                invoicing, receipts, taxes and retail product management. Shedul POS is advanced and fully
+                integrated with salon scheduling app.
+              </p>
+            </div>
+          </li><br>
         </ul>
       </div>
       <div class="col-md-1"></div>
@@ -229,7 +278,7 @@
   <!--Copyright-->
   <div class="footer-copyright py-3">
     © 2020 Copyright:
-    <a href="" target="_blank"> Hoodsltd.com </a>
+
   </div>
   <!--/.Copyright-->
 

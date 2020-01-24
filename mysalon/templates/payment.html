@@ -1,10 +1,29 @@
 {%extends 'layout.html'%}
 {%block content%}
-<div class="container" style="padding-top: 10em;">
-    <div class="row">
-        <div class="col-md-12">
+<style>
+.btn {
 
-            {{form.render}}
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 7px 4px;
+    border-radius: 12px;
+    font-weight: 900;
+
+  }
+</style>
+<div class="container" >
+    <div class="row" style="padding-top: 10em;">
+        <div class="col-md-6">
+
+           <button> {{form.render}}</button>
+        </div>
+        <div class="col-md-6">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCEZLaC0folgbl6yDs9I1f73JMgTRGbSZ2bu6ebDqbFpitwfMq&s" alt="paypal">
         </div>
     </div>
 </div>

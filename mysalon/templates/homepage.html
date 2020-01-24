@@ -3,14 +3,14 @@
 {% load static %}
 {%block content%}
 
-<div class="container-fluid" style="padding-top:4em">
+<div class="container-fluid" style="padding-top:4em; font-size: 20px;">
 
   <div class="row">
     {% for item in object_list %}
       <div class=col-md-3>
           <div class="card" style="margin-top: 20px;">
               <div class="card-title">
-                  <h6><u><strong>{{item.title}}</strong></u></h6>
+                  <h6 style="font-size: 20px;"><u><strong>{{item.title}}</strong></u></h6>
               </div>
               <a href="{{item.get_absolute_url}}">
                   <img class="img-fluid" src="{{item.image.cdn_url}}" alt=""></a>

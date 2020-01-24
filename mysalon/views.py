@@ -36,6 +36,7 @@ def order_summary(request):
         return render(request,'order_summary.html',{'object':order})
     except ObjectDoesNotExist:
         messages.warning(self.request,"You do not have an active order")
+        
 @login_required()       
 def total_order(request):
     if request.method == 'POST':
@@ -46,12 +47,16 @@ def total_order(request):
             "item_name":'Products',
             "invoice":str(random.randint(000,999)),
             "currency_code":'USD',
-            "notify_url":'',
-            "return_url":'',
-            "cancel_return":'',
+            "notify_url":' https://salonspa.herokuapp.com/go/',
+            "return_url":'https://salonspa.herokuapp.com/payment-done',
+            "cancel_return":'https://salonspa.herokuapp.com/payment-cancelled',
+            
         }
         form = PayPalPaymentsForm(initial=paypal_dict)
         return render(request,'payment.html',{"form":form})
+
+def paypal_return(request):
+    return render(request,"paypal_return.html")
 
 
 class HomeView(ListView):
