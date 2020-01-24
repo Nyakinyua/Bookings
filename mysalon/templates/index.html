@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 {% block content%}
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
   .btn {
 
     border: none;
@@ -14,219 +15,94 @@
     font-weight: 900;
 
   }
+
+  .home {
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://images.pexels.com/photos/705255/pexels-photo-705255.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-position: center top;
+    background-size: cover;
+  }
+  .wrapper  .weoffer {
+    width: 100%;
+    height: 100vh;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+
+  }
+
+
+
+  hr {
+    width: 50%;
+    height: 20px;
+    background-color: transparent;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-width: 2px;
+    border-color: transparent;
+  }
 </style>
-<!--Carousel Wrapper-->
-<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-2" data-slide-to="1"></li>
-    <li data-target="#carousel-example-2" data-slide-to="2"></li>
-  </ol>
-  <!--/.Indicators-->
-  <!--Slides-->
-  <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <div class="view">
-        <img class="d-block w-100"
-          src="https://images.pexels.com/photos/705255/pexels-photo-705255.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="First slide">
-        <div class="mask rgba-black-light"></div>
+<section class="home"></section>
+<div class="col text-center">
+  <h3 class="h3-responsive"><a href="{% url 'mysalon:appointment'%}" class="btn btn-warning">Book Appointment</a>
+  </h3>
+</div>
+
+<hr>
+<section class="weoffer" style="padding-top: 8em;">
+  <div class="col text-center">
+    <h1 text-align=center style="font-family: 'Pacifico', cursive;"><u>Services Offered</u></h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">For all your Hair needs</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+        </div>
+        <a href="#"><img src="https://www.shedul.com/images/Software-Hair-Salons-955d22eb.jpg" alt="salon"></a>
       </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive"><a href="{% url 'mysalon:appointment'%}" class="btn btn-warning">Book Appointment</a>
-        </h3>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Coiffure and spa</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <a href="#"><img
+            src="https://images.pexels.com/photos/3212179/pexels-photo-3212179.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="salon" class='img-fluid'></a>
 
       </div>
     </div>
-    <div class="carousel-item">
-      <!--Mask color-->
-      <div class="view">
-        <img class="d-block w-100"
-          src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Second slide">
-        <div class="mask rgba-black-strong"></div>
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive"><a href="{% url 'mysalon:appointment'%}" class="btn btn-warning">Book Appointment</a>
-        </h3>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <!--Mask color-->
-      <div class="view">
-        <img class="d-block w-100"
-          src="https://images.pexels.com/photos/705255/pexels-photo-705255.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="Third slide">
-        <div class="mask rgba-black-slight"></div>
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive"><a href="{% url 'mysalon:appointment'%}" class="btn btn-warning">Book Appointment</a>
-        </h3>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Coiffure and spa</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <a href="#"><img
+            src="https://images.pexels.com/photos/161737/pedicure-massage-therapist-spa-161737.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="salon" class='img-fluid'></a>
+
       </div>
     </div>
   </div>
 
 
-  <section class="weoffer" style="padding-top: 8em;">
-    <h2>Our Services</h2>
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">For all your Hair needs</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-          </div>
-          <a href="#"><img src="https://www.shedul.com/images/Software-Hair-Salons-955d22eb.jpg" alt="salon"></a>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Coiffure and spa</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <a href="#"><img
-              src="https://images.pexels.com/photos/3212179/pexels-photo-3212179.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="salon" class='img-fluid'></a>
-
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Coiffure and spa</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <a href="#"><img
-              src="https://images.pexels.com/photos/161737/pedicure-massage-therapist-spa-161737.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="salon" class='img-fluid'></a>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="row" style="padding-top: 4em;">
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">For all your Hair needs</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-          </div>
-          <a href="#"><img src="https://images.pexels.com/photos/374071/pexels-photo-374071.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="salon"></a>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Coiffure and spa</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <a href="#"><img
-              src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="salon" class='img-fluid'></a>
-
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Coiffure and spa</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <a href="#"><img
-              src="https://images.pexels.com/photos/161737/pedicure-massage-therapist-spa-161737.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="salon" class='img-fluid'></a>
-
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row" style="padding-top: 4em;">
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">For all your Hair needs</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-          </div>
-          <a href="#"><img src="https://www.shedul.com/images/Software-Hair-Salons-955d22eb.jpg" alt="salon"></a>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Coiffure and spa</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <a href="#"><img
-              src="https://images.pexels.com/photos/897262/pexels-photo-897262.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="salon" class='img-fluid'></a>
-
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Coiffure and spa</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <a href="#"><img
-              src="https://images.pexels.com/photos/161737/pedicure-massage-therapist-spa-161737.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="salon" class='img-fluid'></a>
-
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="posts">
-    <div class="container-fluid">
-
-      <div class="row">
-        {% for post in post %}
-        <div class=col-md-4>
-          <div class="card" style="margin-bottom: 5em;width:350px;">
-            <div class="card-title">
-              <h3>{{post.name}}</h3>
-            </div>
-            <div class="card-body">
-              <a href="">
-                <img class="img-fluid" src="{{post.pic.cdn_url}}" alt="" style="width:300px"></a>
-            </div>
-            <div class="card-footer">
-              <a href="">{{post.price}}</a>
-              <p>posted {{post.pub_date|timesince}} ago</p>
-            </div>
-            <div class="section">
-              <a href="/comment/{{post.id}}"><button class="btn btn-info" type="button"
-                  name="button">Comment</button></a>
-            </div>
-
-
-          </div>
-        </div>
-        {%endfor%}
-        <br><br>
-
-      </div>
-
-
-      <div class='col-md-2'></div>
-    </div>
-</div>
+  
 </section>
 
-
-<section class='section-gutter-top-large section-gutter-bottom-large' style="padding-top:5em">
+<hr>
+<section class='section-gutter-top-large section-gutter-bottom-large'>
   <div class='wrapper'>
 
     <header class='section-header text-center'>
-      <h2 class='section-header__title'> Features</h2>
-      <p class='section-header__subtitle'>All the great tools you need to run your Salon, Spa or Wellness
-        business!</p>
+      <h1 text-align=center style="font-family: 'Pacifico', cursive;"><u>Discover Features</u></h1>
     </header>
     <div class="row">
       <div class="col-md-5">
@@ -304,6 +180,60 @@
     </div>
   </div>
 </section>
+
+
+
+
+<!--Footer-->
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  <hr class="my-4">
+
+  <!-- Social icons -->
+  <div class="pb-4">
+    <a href="https://www.facebook.com/" target="_blank">
+      <i class="fab fa-facebook-f mr-3"></i>
+    </a>
+
+    <a href="https://twitter.com" target="_blank">
+      <i class="fab fa-twitter mr-3"></i>
+    </a>
+
+    <a href="" target="_blank">
+      <i class="fab fa-youtube mr-3"></i>
+    </a>
+
+    <a href="" target="_blank">
+      <i class="fab fa-google-plus-g mr-3"></i>
+    </a>
+
+    <a href="" target="_blank">
+      <i class="fab fa-dribbble mr-3"></i>
+    </a>
+
+    <a href="" target="_blank">
+      <i class="fab fa-pinterest mr-3"></i>
+    </a>
+
+    <a href="" target="_blank">
+      <i class="fab fa-github mr-3"></i>
+    </a>
+
+    <a href="" target="_blank">
+      <i class="fab fa-codepen mr-3"></i>
+    </a>
+  </div>
+  <!-- Social icons -->
+
+  <!--Copyright-->
+  <div class="footer-copyright py-3">
+    © 2020 Copyright:
+    <a href="" target="_blank"> Hoodsltd.com </a>
+  </div>
+  <!--/.Copyright-->
+
+</footer>
 
 
 {% endblock content%}

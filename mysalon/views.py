@@ -66,9 +66,14 @@ class ItemDetailView(DetailView):
 
 @login_required()
 def posts(request):
+    
+    return render(request, 'index.html')
+
+def what_we_do(request):
     all_posts = Salonposts.objects.all()
     comments = Comments.objects.all()
-    return render(request, 'index.html', {'post': all_posts, 'comments': comments})
+    return render(request, 'posts.html', {'post': all_posts, 'comments': comments})
+
 
 @login_required()
 def add_comments(request, id):

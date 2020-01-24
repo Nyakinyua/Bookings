@@ -13,6 +13,7 @@ urlpatterns = [
     path('home/',HomeView.as_view(),name='home'),
     path('product/<slug>/',ItemDetailView.as_view(),name="detail"),
     path('',views.posts,name="posts"),
+    path('what_we_do/' ,views.what_we_do,name='what-we-do'),
     path('comment/<int:id>',views.add_comments,name='comment'),
     path('add-to-cart/<slug>/',views.add_to_cart,name='add-to-cart'),
     path('remove-from-cart/<slug>',views.remove_from_cart,name='remove_from_cart'),

@@ -1,0 +1,44 @@
+ {%  extends 'layout.html'%}
+ {%block content %}
+ <section class="posts">
+
+
+    <div class="text-center">
+      <h3>Gallery</h3>
+    </div>
+    <div class="container-fluid">
+
+      <div class="row" style="padding-top: 5em;">
+        {% for post in post %}
+        <div class=col-md-4>
+          <div class="card" style="margin-bottom: 5em;width:350px;">
+            <div class="card-title">
+              <h3>{{post.name}}</h3>
+            </div>
+            <div class="card-body">
+              <a href="">
+                <img class="img-fluid" src="{{post.pic.cdn_url}}" alt="" style="width:300px"></a>
+            </div>
+            <div class="card-footer">
+              <a href="">{{post.price}}</a>
+              <p>posted {{post.pub_date|timesince}} ago</p>
+            </div>
+            <div class="section">
+              <a href="/comment/{{post.id}}"><button class="btn btn-info" type="button"
+                  name="button">Comment</button></a>
+            </div>
+
+
+          </div>
+        </div>
+        {%endfor%}
+        <br><br>
+
+      </div>
+
+
+      <div class='col-md-2'></div>
+    </div>
+</div>
+</section>
+{% endblock content %}
