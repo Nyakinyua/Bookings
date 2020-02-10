@@ -153,4 +153,10 @@ class Comments(models.Model):
         comments = cls.objects.filter(salonpost_id__in=id)
         return comments
     
+class Note(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=400)
+    created_at = models.DateTimeField()
+    created_by = models.CharField(max_length=50,blank=True,null=True)
+    priority = models.IntegerField()
     

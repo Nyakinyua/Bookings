@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
-"""
+"""  
 
 import os
 import django_heroku
@@ -48,18 +48,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pyuploadcare.dj',
+    'bootstrap4',
+    'paypal.standard.ipn',
+    'crispy_forms',
+    'mysalon.apps.MysalonConfig',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'pyuploadcare.dj',
-    'salon',
-    'mysalon.apps.MysalonConfig',
-    'bootstrap4',
-    'paypal.standard.ipn',
-    'crispy_forms',
    
-    
 ]
 PAYPAL_RECEIVER_EMAIL = 'pyra_m.k@yahoo.com'
 PAYPAL_TEST = True
@@ -80,12 +78,13 @@ ROOT_URLCONF = 'salon.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'mysalon','templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -201,3 +200,5 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

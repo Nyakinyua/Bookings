@@ -21,6 +21,7 @@ urlpatterns = [
     path('remove_item/<slug>',views.remove_single_item_from_cart,name='remove_one'),
     path('create_appointment/',views.create_appointment,name="appointment"),
     path('paypal_return/',views.paypal_return,name="return"),
+   
     #Dashboard
     path('activate/user/<int:user_id>', views.user_activate, name='activate_user'),
     path('deactivate/user/<int:user_id>', views.user_deactivate, name='deactivate_user'),

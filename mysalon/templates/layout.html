@@ -7,6 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <title>{% block head_title %}{% endblock %}</title>
+        {% block extra_head %}
+        {% endblock %}
+     
+      </head>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
@@ -44,6 +50,8 @@
     {% endfor%}
     {%endif%}
     {% block content%}{% endblock %}
+    {% block extra_body %}
+    {% endblock %}
 
 {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -63,3 +71,5 @@
 </body>
 
 </html>
+
+

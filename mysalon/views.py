@@ -15,6 +15,8 @@ import random
 
 
 # Create your views here.
+
+
 @login_required()
 def item_list(request):
     context = {
@@ -54,7 +56,24 @@ def total_order(request):
         }
         form = PayPalPaymentsForm(initial=paypal_dict)
         return render(request,'payment.html',{"form":form})
-
+    else:
+        messages.info(request,'Your payment was not successful, please try again')
+        return render(request,'payment.html',{"form":form})
+    
+@login_required()
+def jenga_payment(request):
+    if request.method == 'POST':
+        price = request.POST.get('amount')
+        jenga_dict = {
+            'token': 'xccuUjuysdsnvtloPWqiT',
+            'merchantCode':str(random.randint(000,999)),
+            'merchant': 'MerchantXYZ',
+            'outletCode':str(random.randint(0,9) for iter in range(10)),
+            'amount': 'price',
+            'ez1_callback':'https/domain/'
+        }
+        
+@csrf_exempt
 def paypal_return(request):
     return render(request,"paypal_return.html")
 
@@ -63,7 +82,6 @@ class HomeView(ListView):
     model = Item
     paginated_by = 10
     template_name = 'homepage.html'
-
 
 class ItemDetailView(DetailView):
     model = Item
